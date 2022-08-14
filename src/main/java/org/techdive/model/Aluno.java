@@ -14,6 +14,13 @@ public class Aluno {
 
     private String nome;
 
+    public Aluno(Integer matricula, String nome) {
+        this.matricula = matricula;
+        this.nome = nome;
+    }
+
+    public Aluno() {
+    }
 
     @Override
     public boolean equals(Object o) {

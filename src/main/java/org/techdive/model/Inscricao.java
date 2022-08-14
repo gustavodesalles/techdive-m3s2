@@ -17,6 +17,14 @@ public class Inscricao {
     @ManyToOne
     private Curso curso;
 
+    public Inscricao(Integer id, Aluno aluno, Curso curso) {
+        this.id = id;
+        this.aluno = aluno;
+        this.curso = curso;
+    }
+
+    public Inscricao() {
+    }
 
     @Override
     public boolean equals(Object o) {

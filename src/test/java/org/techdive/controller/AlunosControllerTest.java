@@ -46,4 +46,24 @@ class AlunosControllerTest {
         assertInstanceOf(AlunoDTO.class, result.getEntity());
     }
 
+    @Test
+    @DisplayName("Quando aluno existente, Deve excluir com sucesso")
+    void excluir_sucesso() {
+        AlunoDTO alunoDTO = new AlunoDTO(1234, "nome do aluno");
+        Response result = controller.remover(alunoDTO.getMatricula());
+        assertEquals(Response.Status.NO_CONTENT.getStatusCode(), result.getStatus());
+        assertNotNull(result);
+        assertDoesNotThrow(() -> service.excluir(alunoDTO.getMatricula()));
+    }
+
+    @Test
+    @DisplayName("Quando aluno existente, Deve obter com sucesso")
+    void obter_sucesso() {
+        AlunoDTO alunoDTO = new AlunoDTO(1234, "nome do aluno");
+        Response result = controller.obter(alunoDTO.getMatricula());
+        assertEquals(Response.Status.OK.getStatusCode(), result.getStatus());
+        assertNotNull(result);
+        assertInstanceOf(Response.class, result);
+    }
+
 }
